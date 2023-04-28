@@ -198,6 +198,7 @@ class Trimmer {
     videoFileName ??= "${videoName}_trimmed_$formattedDateTime";
 
     videoFileName = videoFileName.replaceAll(' ', '_');
+    videoFileName = videoFileName.replaceAll(',', '_');
 
     String path = await _createFolderInAppDocDir(
       videoFolderName,
