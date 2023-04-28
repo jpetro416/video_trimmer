@@ -199,6 +199,8 @@ class Trimmer {
 
     videoFileName = videoFileName.replaceAll(' ', '_');
     videoFileName = videoFileName.replaceAll(',', '_');
+    videoFileName = videoFileName.replaceAll(':', '_');
+    videoFileName = videoFileName.replaceAll('-', '_');
 
     String path = await _createFolderInAppDocDir(
       videoFolderName,
