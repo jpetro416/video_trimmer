@@ -189,6 +189,7 @@ class Trimmer {
     String outputPath;
     String? outputFormatString;
     String formattedDateTime = dateTime.replaceAll(' ', '');
+    formattedDateTime = formattedDateTime.replaceAll(':', '_');
 
     debugPrint("DateTime: $dateTime");
     debugPrint("Formatted: $formattedDateTime");
