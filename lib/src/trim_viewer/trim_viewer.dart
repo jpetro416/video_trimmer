@@ -220,26 +220,26 @@ class _TrimViewerState extends State<TrimViewer> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final scrollableViewer = ScrollableTrimViewer(
-      trimmer: widget.trimmer,
-      maxVideoLength: widget.maxVideoLength,
-      viewerWidth: widget.viewerWidth,
-      viewerHeight: widget.viewerHeight,
-      showDuration: widget.showDuration,
-      durationTextStyle: widget.durationTextStyle,
-      durationStyle: widget.durationStyle,
-      onChangeStart: widget.onChangeStart,
-      onChangeEnd: widget.onChangeEnd,
-      onChangePlaybackState: widget.onChangePlaybackState,
-      paddingFraction: widget.paddingFraction,
-      editorProperties: widget.editorProperties,
-      areaProperties: widget.areaProperties,
-      onThumbnailLoadingComplete: () {
-        if (widget.onThumbnailLoadingComplete != null) {
-          widget.onThumbnailLoadingComplete!();
-        }
-      },
-    );
+    // final scrollableViewer = ScrollableTrimViewer(
+    //   trimmer: widget.trimmer,
+    //   maxVideoLength: widget.maxVideoLength,
+    //   viewerWidth: widget.viewerWidth,
+    //   viewerHeight: widget.viewerHeight,
+    //   showDuration: widget.showDuration,
+    //   durationTextStyle: widget.durationTextStyle,
+    //   durationStyle: widget.durationStyle,
+    //   onChangeStart: widget.onChangeStart,
+    //   onChangeEnd: widget.onChangeEnd,
+    //   onChangePlaybackState: widget.onChangePlaybackState,
+    //   paddingFraction: widget.paddingFraction,
+    //   editorProperties: widget.editorProperties,
+    //   areaProperties: widget.areaProperties,
+    //   onThumbnailLoadingComplete: () {
+    //     if (widget.onThumbnailLoadingComplete != null) {
+    //       widget.onThumbnailLoadingComplete!();
+    //     }
+    //   },
+    // );
 
     final fixedTrimViewer = FixedTrimViewer(
       trimmer: widget.trimmer,
@@ -265,14 +265,6 @@ class _TrimViewerState extends State<TrimViewer> with TickerProviderStateMixin {
       },
     );
 
-    return _isScrollableAllowed == null
-        ? const SizedBox()
-        : widget.type == ViewerType.fixed
-            ? fixedTrimViewer
-            : widget.type == ViewerType.scrollable
-                ? scrollableViewer
-                : _isScrollableAllowed == true
-                    ? scrollableViewer
-                    : fixedTrimViewer;
+    return fixedTrimViewer;
   }
 }
